@@ -1,55 +1,74 @@
 .job-card {
-    width: 100%;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
+    width: 80%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px double #346fa7;
+    border-radius: 15px;
+    padding: 25px;
   }
   
-  .job-card .title {
-    font-size: 1.2rem;
+  .job-card .roloc {
     font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .job-card .company {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .job-card .location {
-    font-size: 1rem;
-    color: #666;
+    color: #292727;
     margin-bottom: 10px;
   }
   
+  .job-card .company {
+    color: grey;
+    margin-bottom: 5px;
+  }
+  
   .job-card .description {
-    font-size: 1rem;
     color: #333;
     margin-bottom: 10px;
   }
   
+  .job-card .about {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
   .job-card .experience {
     font-size: 0.9rem;
-    color: #666;
+    font-weight: bold;
+    color: #69604c;
     margin-bottom: 10px;
   }
   
   .job-card .apply-btn {
     margin-top: 10px;
   }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .card-header img{
+    margin-right: 10px;
+  }
   
   /* Filters styles */
   .filters {
     width : 100%;
-    margin-bottom: 400px;
+    margin-bottom: 2px;
   }
   
   .filters .filter-input {
-    margin-bottom: 500px;
+    margin-bottom: 20px;
+    width: 12%;
   }
   
   .filters .apply-btn {
     margin-top: 10px;
   }
+
+  /* View more styles */
+  .view-job-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Adjust as needed */
+}

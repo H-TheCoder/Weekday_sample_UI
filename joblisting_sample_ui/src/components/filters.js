@@ -26,7 +26,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
     };
 
     return (
-        <div>
+        <div className = 'filters'>
+            <br />
             <TextField select SelectProps={{
                 MenuProps: {
                 PaperProps: {
@@ -65,7 +66,7 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                 className = 'filter-input' 
                 value = {filters.role} 
                 onChange = {handleChange}>
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' }}>
                             Engineering
                     </MenuItem>
                     {enggOptions.map(( option , index) => (
@@ -73,7 +74,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                             {option}
                         </MenuItem>
                     ))}
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                    <br />
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' }}>
                             Design
                     </MenuItem>
                     {designOptions.map(( option , index) => (
@@ -81,7 +83,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                             {option}
                         </MenuItem>
                     ))}
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                    <br />
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' , fontWeight: 'bold' }}>
                             Operations
                     </MenuItem>
                     {opsOptions.map(( option , index) => (
@@ -89,7 +92,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                             {option}
                         </MenuItem>
                     ))}
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                    <br />
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' }}>
                             Sales
                     </MenuItem>
                     {salesOptions.map(( option , index) => (
@@ -97,7 +101,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                             {option}
                         </MenuItem>
                     ))}
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}> 
+                    <br />
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' }}> 
                             Marketing
                     </MenuItem>
                     {marketingOptions.map(( option , index) => (
@@ -105,7 +110,8 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                             {option}
                         </MenuItem>
                     ))}
-                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                    <br />
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' , fontWeight: 'bold' }}>
                             Other Engineering
                     </MenuItem>
                     {otherEnggOPtions.map(( option , index) => (
