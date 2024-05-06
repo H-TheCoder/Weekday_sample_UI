@@ -25,7 +25,7 @@ const JobLists = () => {
             if (filters.minExperience && job.experience < filters.minExperience) {
               return false; // Skip this job if experience is less than minExperience
             }
-            if (filters.companyName && !job.company.toLowerCase().includes(filters.companyName.toLowerCase())) {
+            if (filters.companyName && !job.companyName.toLowerCase().includes(filters.companyName.toLowerCase())) {
               return false; // Skip this job if company name doesn't match
             }
             // Apply other filters similarly

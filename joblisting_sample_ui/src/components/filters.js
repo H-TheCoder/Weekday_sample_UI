@@ -59,8 +59,56 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "role" label = "Roles" className = 'filter-input' value = {filters.role} onChange = {handleChange}>
+                }} 
+                name = "role" 
+                label = "Roles" 
+                className = 'filter-input' 
+                value = {filters.role} 
+                onChange = {handleChange}>
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                            Engineering
+                    </MenuItem>
                     {enggOptions.map(( option , index) => (
+                        <MenuItem key = {index} value = {option}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                            Design
+                    </MenuItem>
+                    {designOptions.map(( option , index) => (
+                        <MenuItem key = {index} value = {option}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                            Operations
+                    </MenuItem>
+                    {opsOptions.map(( option , index) => (
+                        <MenuItem key = {index} value = {option}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                            Sales
+                    </MenuItem>
+                    {salesOptions.map(( option , index) => (
+                        <MenuItem key = {index} value = {option}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}> 
+                            Marketing
+                    </MenuItem>
+                    {marketingOptions.map(( option , index) => (
+                        <MenuItem key = {index} value = {option}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                    <MenuItem style={{ color: 'grey' , textDecoration: 'underline' }}>
+                            Other Engineering
+                    </MenuItem>
+                    {otherEnggOPtions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
                             {option}
                         </MenuItem>
@@ -70,7 +118,7 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                 MenuProps: {
                 PaperProps: {
                     style: {
-                    maxHeight: 200,
+                    maxHeight: 1000,
                     },
                 },
                 },
