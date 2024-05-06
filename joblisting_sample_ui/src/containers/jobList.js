@@ -9,7 +9,7 @@ const JobLists = () => {
     const dispatch = useDispatch();
     const jobs = useSelector((state => state.jobs.jobList));
     const filters = useSelector((state) => state.filters);
-    const [ filteredJobs , setFilteredJobs ] = useState(jobs);
+    const [ filteredJobs , setFilteredJobs ] = useState([]);
     const [ loading , setLoading ] = useState(false);
     const [ page , setPage ] = useState(1);
     const pageSize = 10;
@@ -34,6 +34,10 @@ const JobLists = () => {
         };
     } , [loading]);
 
+    useEffect(() => {
+        handleApplyFilters();
+    } , [filters]);
+
     const loadMoreJobs = async () => {
         setLoading(true);
         try {
@@ -55,7 +59,7 @@ const JobLists = () => {
         dispatch(setFiltersAction(newFilters));
     };
 
-    const handleApplyFIlters = () => {
+    const handleApplyFilters = () => {
         const filteredJobs = jobs.filter((job) => {
             // Apply filters one by one
             if (filters.minExperience !== null && filters.minExperience) {
@@ -86,7 +90,7 @@ const JobLists = () => {
 
     return (
         <div>
-            <Filters filters = {filters} onFilterChange = {handleFilterChange} onApplyFilter = {handleApplyFIlters}/>
+            <Filters filters = {filters} onFilterChange = {handleFilterChange} />
             {loading ? (
                 <p>Loading...</p>
             ) : (
