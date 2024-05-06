@@ -1,10 +1,10 @@
-import { Set_Filters , Load_Jobs } from "../actionType";
+import { SET_FILTERS , LOAD_JOBS } from "../actionType";
 
-export const setFilters = (filters) => ({
-    type : Set_Filters ,
+export const setFiltersAction = (filters) => ({
+    type : SET_FILTERS ,
     payload : filters 
 });
 
-export const loadJobs = () => ({
-    type : Load_Jobs
+export const loadJobsAction = () => ({
+    type : LOAD_JOBS
 });

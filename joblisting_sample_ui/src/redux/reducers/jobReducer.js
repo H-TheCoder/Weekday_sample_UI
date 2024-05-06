@@ -1,13 +1,13 @@
-import { Load_Jobs } from "../actionType";
+import { LOAD_JOBS } from "../actionType";
 import apiJson from "../../apiResult.json"
 
 const initialState = {
     jobList : []
 };
 
-const jobReducer = (state = initialState , action) => {
+const JobReducer = (state = initialState , action) => {
     switch(action.type) {
-        case Load_Jobs:
+        case LOAD_JOBS:
             console.log(apiJson.jdList);
             // const apiJSON = fs.readFile("../../../../Joblist_Samples_API/apiResult.json");
             return {
@@ -19,4 +19,4 @@ const jobReducer = (state = initialState , action) => {
     }
 };
 
-export default jobReducer;
+export default JobReducer;

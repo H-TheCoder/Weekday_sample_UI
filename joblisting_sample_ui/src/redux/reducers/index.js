@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import jobReducer  from './jobReducer';
-import filterReducer from './filterReducer';
+import JobReducer  from './jobReducer';
+import FilterReducer from './filterReducer';
 
-const rootReducer = combineReducers({
-    jobs : jobReducer ,
-    filters : filterReducer
+const RootReducer = combineReducers({
+    jobs : JobReducer ,
+    filters : FilterReducer
 });
 
-export default rootReducer;
+export default RootReducer;

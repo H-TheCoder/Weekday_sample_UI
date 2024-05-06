@@ -1,4 +1,4 @@
-import { Set_Filters } from "../actionType";
+import { SET_FILTERS } from "../actionType";
 
 const initialState = {
     minExperience : '' ,
@@ -11,9 +11,9 @@ const initialState = {
     companyName : ''    
 };
 
-const filterReducer = (state = initialState , action) => {
+const FilterReducer = (state = initialState , action) => {
     switch (action.type) {
-        case Set_Filters:
+        case SET_FILTERS:
             return {
                 ...state ,
                 ...action.payload
@@ -23,4 +23,4 @@ const filterReducer = (state = initialState , action) => {
     }
 };
 
-export default filterReducer;
+export default FilterReducer;

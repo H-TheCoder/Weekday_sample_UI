@@ -42,11 +42,12 @@
   
   /* Filters styles */
   .filters {
-    margin-bottom: 20px;
+    width : 100%;
+    margin-bottom: 400px;
   }
   
   .filters .filter-input {
-    margin-bottom: 10px;
+    margin-bottom: 500px;
   }
   
   .filters .apply-btn {

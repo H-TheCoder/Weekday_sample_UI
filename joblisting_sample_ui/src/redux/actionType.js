@@ -1,2 +1,2 @@
-export const Set_Filters = 'SET_FILTERS';
-export const Load_Jobs = 'LOAD_JOBS';
+export const SET_FILTERS = 'SET_FILTERS';
+export const LOAD_JOBS = 'LOAD_JOBS';

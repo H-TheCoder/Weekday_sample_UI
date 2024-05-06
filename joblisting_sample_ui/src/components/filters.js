@@ -3,6 +3,8 @@ import { TextField ,  MenuItem , Button , Select } from '@mui/material';
 import "../style/style.css"
 
 const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
+    const [open, setOpen] = useState(false);
+
     const expOptions = [ '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10' ];
     const remoteOptions = [ 'Remote' , 'Hybrid' , 'In-office' ];
     const noEmpOptions = [ '1-10' , '11-20' , '21-50' , '51-100' , '101-200' , '201-500' , '500+' ];
@@ -33,14 +35,21 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "minExperience" label = "Min Experience" value = {filters.minExperience} onChange = {handleChange}>
-                <div>
+                }}
+                variant = 'outlined' 
+                open = { open } 
+                onOpen = { () => setOpen(true) }
+                onClose = { () => setOpen(false) }
+                name = "minExperience" 
+                label = "Min Experience" 
+                className = 'filter-input' 
+                value = {filters.minExperience} 
+                onChange = {handleChange}>
                     {expOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -50,14 +59,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }}  className = 'filter-input' name = "role" label = "Roles" value = {filters.role} onChange = {handleChange}>
-                <div>
+                }} name = "role" label = "Roles" className = 'filter-input' value = {filters.role} onChange = {handleChange}>
                     {enggOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -67,14 +74,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "noOfEmployees" label = "No of employees" value = {filters.noOfEmployees} onChange = {handleChange}>
-                <div>
+                }} name = "noOfEmployees" label = "No of employees" className = 'filter-input' value = {filters.noOfEmployees} onChange = {handleChange}>
                     {noEmpOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -84,14 +89,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "minBasePay" label = "Min Base Pay" value = {filters.minBasePay} onChange = {handleChange}>
-                <div>
+                }} name = "minBasePay" label = "Min Base Pay" className = 'filter-input' value = {filters.minBasePay} onChange = {handleChange}>
                     {salaryOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            'option'
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -101,14 +104,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "location" label = "Location" value = {filters.location} onChange = {handleChange}>
-                <div>
+                }} name = "location" label = "Location" className = 'filter-input' value = {filters.location} onChange = {handleChange}>
                     {locOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -118,14 +119,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "isRemote" label = "Remote" value = {filters.isRemote} onChange = {handleChange}>
-                <div>
+                }} name = "isRemote" label = "Remote" className = 'filter-input' value = {filters.isRemote} onChange = {handleChange}>
                     {remoteOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField select SelectProps={{
                 MenuProps: {
@@ -135,14 +134,12 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} className = 'filter-input' name = "techStack" label = "Tech Stack" value = {filters.techStack} onChange = {handleChange}>
-                <div>
+                }} name = "techStack" label = "Tech Stack" className = 'filter-input' value = {filters.techStack} onChange = {handleChange}>
                     {techOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            `option`
+                            {option}
                         </MenuItem>
                     ))}
-                </div>
             </TextField>
             <TextField name = "companyName" label = "Company name" className = 'filter-input' value = {filters.companyName} onChange = {handleChange}/>            
         </div>
