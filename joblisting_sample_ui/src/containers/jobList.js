@@ -1,4 +1,4 @@
-import React , { useEffect } from 'react';
+import React , { useEffect, useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { Grid } from "@mui/material";
 import jobCard from "../components/jobCard";
@@ -9,6 +9,7 @@ const jobLists = () => {
     const dispatch = useDispatch();
     const jobs = useSelector((state => state.jobs.jobLists));
     const filters = useSelector((state) => state.filters);
+    const [ filteredJobs , setFilteredJobs ] = useState([]);
 
     useEffect(() => {
         dispatch(loadJobs());
@@ -19,7 +20,22 @@ const jobLists = () => {
     };
 
     const handleApplyFIlters = () => {
-
+        const filteredJobs = jobs.filter((job) => {
+            // Apply filters one by one
+            if (filters.minExperience && job.experience < filters.minExperience) {
+              return false; // Skip this job if experience is less than minExperience
+            }
+            if (filters.companyName && !job.company.toLowerCase().includes(filters.companyName.toLowerCase())) {
+              return false; // Skip this job if company name doesn't match
+            }
+            // Apply other filters similarly
+      
+            // If job passes through all filters, return true to include it in filteredJobs
+            return true;
+          });
+      
+          // Update state with filtered jobs
+          setFilteredJobs(filteredJobs);
     };
 
     return (

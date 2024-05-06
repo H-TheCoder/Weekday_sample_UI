@@ -1,0 +1,54 @@
+.job-card {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+  }
+  
+  .job-card .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .job-card .company {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .job-card .location {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .job-card .description {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .job-card .experience {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .job-card .apply-btn {
+    margin-top: 10px;
+  }
+  
+  /* Filters styles */
+  .filters {
+    margin-bottom: 20px;
+  }
+  
+  .filters .filter-input {
+    margin-bottom: 10px;
+  }
+  
+  .filters .apply-btn {
+    margin-top: 10px;
+  }

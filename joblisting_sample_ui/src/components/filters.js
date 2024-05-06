@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import { TextField ,  MenuItem , Button , Select } from '@mui/material';
+import "../style/style.css"
 
 const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
     const expOptions = [ '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10' ];
@@ -32,11 +33,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "minExperience" label = "Min Experience" value = {filters.minExperience} onChange = {handleChange}>
+                }} className = 'filter-input' name = "minExperience" label = "Min Experience" value = {filters.minExperience} onChange = {handleChange}>
                 <div>
                     {expOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {expOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
@@ -49,11 +50,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "role" label = "Roles" value = {filters.role} onChange = {handleChange}>
+                }}  className = 'filter-input' name = "role" label = "Roles" value = {filters.role} onChange = {handleChange}>
                 <div>
                     {enggOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {enggOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
@@ -66,11 +67,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "noOfEmployees" label = "No of employees" value = {filters.noOfEmployees} onChange = {handleChange}>
+                }} className = 'filter-input' name = "noOfEmployees" label = "No of employees" value = {filters.noOfEmployees} onChange = {handleChange}>
                 <div>
                     {noEmpOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {noEmpOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
@@ -83,11 +84,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "minBasePay" label = "Min Base Pay" value = {filters.minBasePay} onChange = {handleChange}>
+                }} className = 'filter-input' name = "minBasePay" label = "Min Base Pay" value = {filters.minBasePay} onChange = {handleChange}>
                 <div>
                     {salaryOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {salaryOptions}
+                            'option'
                         </MenuItem>
                     ))}
                 </div>
@@ -100,11 +101,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "location" label = "Location" value = {filters.location} onChange = {handleChange}>
+                }} className = 'filter-input' name = "location" label = "Location" value = {filters.location} onChange = {handleChange}>
                 <div>
                     {locOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {locOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
@@ -117,11 +118,11 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "isRemote" label = "Remote" value = {filters.isRemote} onChange = {handleChange}>
+                }} className = 'filter-input' name = "isRemote" label = "Remote" value = {filters.isRemote} onChange = {handleChange}>
                 <div>
                     {remoteOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {remoteOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
@@ -134,16 +135,16 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     },
                 },
                 },
-                }} name = "techStack" label = "Tech Stack" value = {filters.techStack} onChange = {handleChange}>
+                }} className = 'filter-input' name = "techStack" label = "Tech Stack" value = {filters.techStack} onChange = {handleChange}>
                 <div>
                     {techOptions.map(( option , index) => (
                         <MenuItem key = {index} value = {option}>
-                            {techOptions}
+                            `option`
                         </MenuItem>
                     ))}
                 </div>
             </TextField>
-            <TextField name = "companyName" label = "Company name" value = {filters.companyName} onChange = {handleChange}/>            
+            <TextField name = "companyName" label = "Company name" className = 'filter-input' value = {filters.companyName} onChange = {handleChange}/>            
         </div>
     );
 };
