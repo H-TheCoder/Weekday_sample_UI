@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from 'react';
+import React , { useState , useEffect ,useCallback } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { Button, Grid } from "@mui/material";
 import JobCard from "../components/JobCard";
@@ -9,7 +9,7 @@ const JobLists = () => {
     const dispatch = useDispatch();
     const jobs = useSelector((state => state.jobs.jobList));
     const filters = useSelector((state) => state.filters);
-    const [ filteredJobs , setFilteredJobs ] = useState([]);
+    const [ filteredJobs , setFilteredJobs ] = useState(jobs);
     const [ loading , setLoading ] = useState(false);
     const [ page , setPage ] = useState(1);
     const pageSize = 10;
@@ -22,23 +22,7 @@ const JobLists = () => {
         setFilteredJobs(jobs);
     } , [jobs]);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if(window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100 && !loading) {
-                loadMoreJobs();
-            }
-        };
-        window.addEventListener('scroll' , handleScroll);
-        return () => {
-            window.removeEventListener('scroll' , handleScroll);
-        };
-    } , [loading]);
-
-    useEffect(() => {
-        handleApplyFilters();
-        console.log('Filters updated:', filters);
-        console.log('Filters updated:', filteredJobs);
-    } , [filters]);
+    
 
     const loadMoreJobs = async () => {
         setLoading(true);
@@ -59,25 +43,26 @@ const JobLists = () => {
 
     const handleFilterChange = (newFilters) => {
         dispatch(setFiltersAction(newFilters)); // adds new filter selected
+        dispatch(applyFilters);
     };
 
-    const handleApplyFilters = () => {
-        const filteredJobs = jobs.filter((job) => {
+    const applyFilters = useCallback(() => {
+        const filtered = jobs.filter((job) => {
             // Apply filters one by one
             if (filters.minExperience !== null && filters.minExperience) {
-              return job.minExp >= parseInt(filters.minExperience); // Skip this job if experience is less than minExperience
+              return job.minExp >= parseInt(String(filters.minExperience)) && job.maxExp <= parseInt(String(filters.minExperience)); // Skip this job if experience is less than minExperience
             }
             if (filters.companyName) {
-              return job.companyName.toLowerCase().includes(filters.companyName.toLowerCase()); // Skip this job if company name doesn't match
+              return !job.companyName.toLowerCase().includes(String(filters.companyName).toLowerCase()); // Skip this job if company name doesn't match
             }
             if (filters.role) {
                 return job.jobRole.toLowerCase().includes(filters.role.toLowerCase());
             }
             if(filters.minBasePay !== null && filters.minBasePay) {
-                return job.minJdSalary >= parseInt(filters.minBasePay);
+                return job.minJdSalary >= parseInt(String(filters.minBasePay).replace("L" , ""));
             }
             if(filters.location) {
-                return job.location.toLowerCase().includes(filters.location.toLowerCase());
+                return job.location.toLowerCase().includes(String(filters.location).toLowerCase());
             }
 
             //other filters not working as data not provided in API json
@@ -87,8 +72,26 @@ const JobLists = () => {
           });
       
           // Update state with filtered jobs
-          setFilteredJobs(filteredJobs);
-    };
+          setFilteredJobs(filtered);
+    } , [ jobs , filters]);
+
+    useEffect(() => {
+        applyFilters();
+        console.log('Filters updated:', filters);
+        console.log('Filters updated:', filteredJobs);
+    } , [jobs , filters, applyFilters, filteredJobs]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if(window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100 && !loading) {
+                loadMoreJobs();
+            }
+        };
+        window.addEventListener('scroll' , handleScroll);
+        return () => {
+            window.removeEventListener('scroll' , handleScroll);
+        };
+    } , [loading , applyFilters]);
 
     return (
         <div>
