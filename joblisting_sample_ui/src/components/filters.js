@@ -15,14 +15,24 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
     const salesOptions = [ 'Sales Development Representative' , 'Account Manager' ];
     const marketingOptions = [ 'Digital Marketing Manager' , 'Growth Hacker' , 'Marketing' , 'Product Marketing Manager' ];
     const otherEnggOPtions = [ 'hardware' , 'Mechanical' , 'Systems'];
-    const locOptions = [ 'Bengaluru' , 'Hyderabad' , 'Delhi' , 'Mumbai' ];
+    const locOptions = [ 'Bengaluru' , 'Hyderabad' , 'Delhi NCR' , 'Mumbai' , 'Chennai' , 'Remote' ];
     const techOptions = [ 'Python' , 'React' , 'node' , 'javaScript' ];
+    
     const handleChange = (event) => {
         const { name , value , type , checked} = event.target;
         const val = type === 'checkbox' ? checked : value;
         onFilterChange( {
+            ...filters,
             [name] : val
         });
+    };
+
+    const resetFilters = () => {
+        const resetFilters = {};
+        Object.keys(filters).forEach((filter) => {
+            resetFilters[filter] = '';
+        });
+        onFilterChange(resetFilters);
     };
 
     return (
@@ -196,6 +206,7 @@ const Filters = ({ filters , onFilterChange , onApplyFilter}) => {
                     ))}
             </TextField>
             <TextField name = "companyName" label = "Company name" className = 'filter-input' value = {filters.companyName} onChange = {handleChange}/>            
+            <Button variant = 'outlined' onClick = {resetFilters}>Reset</Button>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React , { useState , useEffect } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import JobCard from "../components/JobCard";
 import Filters from "../components/filters";
 import { setFiltersAction , loadJobsAction } from "../redux/actions";
@@ -36,6 +36,8 @@ const JobLists = () => {
 
     useEffect(() => {
         handleApplyFilters();
+        console.log('Filters updated:', filters);
+        console.log('Filters updated:', filteredJobs);
     } , [filters]);
 
     const loadMoreJobs = async () => {
@@ -56,7 +58,7 @@ const JobLists = () => {
     };
 
     const handleFilterChange = (newFilters) => {
-        dispatch(setFiltersAction(newFilters));
+        dispatch(setFiltersAction(newFilters)); // adds new filter selected
     };
 
     const handleApplyFilters = () => {
